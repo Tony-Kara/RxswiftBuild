@@ -17,6 +17,9 @@
 		CE70790727D8C56200DC2E3A /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70790627D8C56200DC2E3A /* MainCoordinator.swift */; };
 		CE70790927D8CA4100DC2E3A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70790827D8CA4100DC2E3A /* SecondViewController.swift */; };
 		CE70790B27D8D21400DC2E3A /* FbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70790A27D8D21400DC2E3A /* FbView.swift */; };
+		CE70790E27D9CB5400DC2E3A /* TeslaModelsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70790D27D9CB5400DC2E3A /* TeslaModelsTableViewCell.swift */; };
+		CE70791127D9CF7F00DC2E3A /* TeslaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70791027D9CF7F00DC2E3A /* TeslaViewModel.swift */; };
+		CE70791327D9CFDC00DC2E3A /* TeslaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70791227D9CFDC00DC2E3A /* TeslaModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		CE70790627D8C56200DC2E3A /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		CE70790827D8CA4100DC2E3A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		CE70790A27D8D21400DC2E3A /* FbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FbView.swift; sourceTree = "<group>"; };
+		CE70790D27D9CB5400DC2E3A /* TeslaModelsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeslaModelsTableViewCell.swift; sourceTree = "<group>"; };
+		CE70791027D9CF7F00DC2E3A /* TeslaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeslaViewModel.swift; sourceTree = "<group>"; };
+		CE70791227D9CFDC00DC2E3A /* TeslaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeslaModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +92,12 @@
 		CE7078EF27D8C24800DC2E3A /* RxswiftBuild */ = {
 			isa = PBXGroup;
 			children = (
+				CE70791427D9CFF000DC2E3A /* Model */,
+				CE70790C27D9CAE500DC2E3A /* View */,
+				CE70790F27D9CB9800DC2E3A /* ViewModel */,
 				CE7078F027D8C24800DC2E3A /* AppDelegate.swift */,
 				CE7078F227D8C24800DC2E3A /* SceneDelegate.swift */,
 				CE7078F427D8C24800DC2E3A /* ViewController.swift */,
-				CE70790A27D8D21400DC2E3A /* FbView.swift */,
 				CE70790827D8CA4100DC2E3A /* SecondViewController.swift */,
 				CE7078F927D8C24A00DC2E3A /* Assets.xcassets */,
 				CE7078FB27D8C24A00DC2E3A /* LaunchScreen.storyboard */,
@@ -98,6 +106,31 @@
 				CE70790627D8C56200DC2E3A /* MainCoordinator.swift */,
 			);
 			path = RxswiftBuild;
+			sourceTree = "<group>";
+		};
+		CE70790C27D9CAE500DC2E3A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE70790A27D8D21400DC2E3A /* FbView.swift */,
+				CE70790D27D9CB5400DC2E3A /* TeslaModelsTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE70790F27D9CB9800DC2E3A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE70791027D9CF7F00DC2E3A /* TeslaViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE70791427D9CFF000DC2E3A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE70791227D9CFDC00DC2E3A /* TeslaModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,9 +248,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE70790927D8CA4100DC2E3A /* SecondViewController.swift in Sources */,
+				CE70790E27D9CB5400DC2E3A /* TeslaModelsTableViewCell.swift in Sources */,
 				CE70790527D8C33000DC2E3A /* Coordinator.swift in Sources */,
 				CE7078F527D8C24800DC2E3A /* ViewController.swift in Sources */,
 				CE7078F127D8C24800DC2E3A /* AppDelegate.swift in Sources */,
+				CE70791327D9CFDC00DC2E3A /* TeslaModel.swift in Sources */,
+				CE70791127D9CF7F00DC2E3A /* TeslaViewModel.swift in Sources */,
 				CE70790727D8C56200DC2E3A /* MainCoordinator.swift in Sources */,
 				CE70790B27D8D21400DC2E3A /* FbView.swift in Sources */,
 				CE7078F327D8C24800DC2E3A /* SceneDelegate.swift in Sources */,
