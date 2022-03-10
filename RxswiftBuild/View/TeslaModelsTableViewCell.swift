@@ -15,6 +15,13 @@ final class TeslaModelsTableViewCell: UITableViewCell {
     return label
   }()
   
+  private let teslaImageView: UIImageView = {
+    let image = UIImageView()
+    image.contentMode = .scaleAspectFit
+    image.clipsToBounds = true
+    return image
+  }()
+  
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: "cell")
     configureView()
@@ -28,11 +35,18 @@ final class TeslaModelsTableViewCell: UITableViewCell {
   func configureView(){
     contentView.backgroundColor = .clear
     contentView.addSubview(modelLabel)
+    contentView.addSubview(teslaImageView)
     
     
     modelLabel.snp.makeConstraints { make in
+      make.leading.equalTo(teslaImageView.snp.trailing).offset(5)
+      make.centerY.equalToSuperview()
+    }
+    
+    teslaImageView.snp.makeConstraints { make in
       make.leading.equalToSuperview().offset(5)
       make.centerY.equalToSuperview()
+      make.height.width.equalTo(70)
     }
     
     
@@ -41,6 +55,7 @@ final class TeslaModelsTableViewCell: UITableViewCell {
   func set(model: TeslaModel) {
     
     modelLabel.text = model.teslaModel
+    teslaImageView.image = UIImage(named: model.teslaImage)
   }
   
 }

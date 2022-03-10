@@ -9,21 +9,18 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SecondViewController: UIViewController, Coordinating {
-  var coordinator: Coordinator?
-  var viewModel = TeslaViewModel()
-  let bag = DisposeBag()
+class TeslaListViewController: UIViewController{
+
+  
   
   private  let tableview: UITableView = {
     let table = UITableView(frame: .zero, style: .grouped)
     table.backgroundColor = .white
-    table.rowHeight = 40
+    table.rowHeight = 100
     table.register(TeslaModelsTableViewCell.self, forCellReuseIdentifier: "cell")
     return table
   }()
-   
- 
-   
+  
    override func viewDidLoad() {
        super.viewDidLoad()
        // Do any additional setup after loading the view.
@@ -31,8 +28,10 @@ class SecondViewController: UIViewController, Coordinating {
        bindView()
        setUpView()
    }
-
- 
+  // MARK: - Properties
+  var coordinator: DetailViewFlow?
+  var viewModel = TeslaViewModel()
+  let bag = DisposeBag()
 
   private func bindView(){
     
@@ -45,8 +44,15 @@ class SecondViewController: UIViewController, Coordinating {
       }
       .disposed(by: bag)
     
+
+    tableview.rx.modelSelected(TeslaModel.self)
+      .subscribe(onNext: { model in
+        self.coordinator?.coordinateToDetail(with: model.teslaModel)
+      }
       
-    
+      )
+      .disposed(by: bag)
+
   }
   
   func setUpView(){

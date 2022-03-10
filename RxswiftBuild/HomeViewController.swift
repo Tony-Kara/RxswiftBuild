@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, Coordinating {
+class HomeViewController: UIViewController {
  
-    var coordinator: Coordinator?
+  var coordinator: StartFlow?
 
   let fbView = FbView()
     override func viewDidLoad() {
@@ -22,9 +22,9 @@ class ViewController: UIViewController, Coordinating {
 
 }
   
-extension ViewController: FbViewDelegate {
+extension HomeViewController: FbViewDelegate {
   func view(_ view: FbView, didTouchUpInside button: UIButton) {
-    coordinator?.eventOccurred(with: .buttonTapped)
+    coordinator?.coordinateToTabBar()
   }
   
 }

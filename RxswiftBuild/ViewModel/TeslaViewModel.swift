@@ -12,11 +12,11 @@ final class TeslaViewModel {
   
   let testlaModels = Observable.just([
     
-    TeslaModel(teslaModel:  "Model S"),
-    TeslaModel(teslaModel:  "Model X"),
-    TeslaModel(teslaModel:  "Model Y"),
-    TeslaModel(teslaModel:  "Model 3"),
-    TeslaModel(teslaModel:  "Model S P90"),
+    TeslaModel(teslaModel:  "Model S", teslaImage: "teslaX"),
+    TeslaModel(teslaModel:  "Model X", teslaImage: "teslaY"),
+    TeslaModel(teslaModel:  "Model Y", teslaImage: "teslaS"),
+    TeslaModel(teslaModel:  "Model 3", teslaImage: "tesla3"),
+    TeslaModel(teslaModel:  "Model S P90", teslaImage: "teslaXP90")
     
   ])
   

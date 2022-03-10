@@ -10,5 +10,6 @@ import Foundation
 struct TeslaModel {
   
   let teslaModel: String
+  let teslaImage: String
   
 }

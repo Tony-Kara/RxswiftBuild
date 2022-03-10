@@ -2,7 +2,7 @@
 //  FbView.swift
 //  RxswiftBuild
 //
-//  Created by User on 09.03.2022.
+//  Created by Tony Eniola on 09.03.2022.
 //
 
 import UIKit
@@ -14,8 +14,7 @@ protocol FbViewDelegate: AnyObject {
 }
 
 class FbView: UIView {
-  
-  var coordinator: Coordinator?
+
   weak var delegate: FbViewDelegate?
   var contentView:UIView = UIView()
   var background:UIImageView = UIImageView()
@@ -68,7 +67,6 @@ class FbView: UIView {
   }
   
       @objc func didTapButton() {
-         // coordinator?.eventOccurred(with: .buttonTapped)
         delegate?.view(self, didTouchUpInside: fbButton)
       }
   
