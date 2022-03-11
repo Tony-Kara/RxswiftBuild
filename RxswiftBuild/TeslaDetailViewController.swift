@@ -2,7 +2,7 @@
 //  TeslaDetailViewController.swift
 //  RxswiftBuild
 //
-//  Created by User on 10.03.2022.
+//  Created by Tony Eniola on 10.03.2022.
 //
 
 import UIKit
@@ -18,10 +18,10 @@ class TeslaDetailViewController: UIViewController {
   
   // MARK: - Properties
 
-  var TeslaModel: String? {
+  var teslaModel: TeslaModel? {
       didSet {
         
-        self.modelLabel.text = TeslaModel
+        configureItem(model: teslaModel!)
         
       }
   }
@@ -36,6 +36,14 @@ class TeslaDetailViewController: UIViewController {
       label.textColor = .systemIndigo
       return label
   }()
+  
+  private let teslaImageView: UIImageView = {
+    let image = UIImageView()
+    image.contentMode = .scaleAspectFit
+    image.clipsToBounds = true
+    return image
+  }()
+  
   
   let dismissDetailButton: UIButton = {
       let button = UIButton()
@@ -52,6 +60,11 @@ class TeslaDetailViewController: UIViewController {
   }()
 
   
+  func configureItem(model: TeslaModel) {
+    self.modelLabel.text = model.teslaModel
+    self.teslaImageView.image = UIImage(named: "\(model.teslaImage)")
+  }
+  
 }
 
 
@@ -63,11 +76,18 @@ extension TeslaDetailViewController {
         }
         self.view.backgroundColor = .white
         self.view.addSubview(modelLabel)
+        self.view.addSubview(teslaImageView)
         self.view.addSubview(dismissDetailButton)
       
       modelLabel.snp.makeConstraints { make in
-        make.leading.equalToSuperview().offset(5)
-        make.centerY.equalToSuperview()
+        make.centerX.equalToSuperview()
+        make.top.equalToSuperview().offset(10)
+      }
+      
+      teslaImageView.snp.makeConstraints { make in
+        
+        make.centerY.centerX.equalToSuperview()
+        make.width.height.equalTo(400)
       }
       
       dismissDetailButton.snp.makeConstraints { make in

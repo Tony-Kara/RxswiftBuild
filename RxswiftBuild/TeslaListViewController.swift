@@ -47,7 +47,7 @@ class TeslaListViewController: UIViewController{
 
     tableview.rx.modelSelected(TeslaModel.self)
       .subscribe(onNext: { model in
-        self.coordinator?.coordinateToDetail(with: model.teslaModel)
+        self.coordinator?.coordinateToDetail(with: model)
       }
       
       )

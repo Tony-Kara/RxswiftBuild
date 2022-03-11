@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DetailViewFlow {
-    func coordinateToDetail(with title: String)
+    func coordinateToDetail(with model: TeslaModel)
 }
 
 class TeslaListCoordinator: Coordinator, DetailViewFlow {
@@ -28,8 +28,8 @@ class TeslaListCoordinator: Coordinator, DetailViewFlow {
   }
   
   // MARK: - Flow Methods
-  func coordinateToDetail(with title: String) {
-    let teslaDetailCoordinator = TeslaDetailCoordinator(navigationController: navigationController!, teslaModel: title)
+  func coordinateToDetail(with model: TeslaModel) {
+    let teslaDetailCoordinator = TeslaDetailCoordinator(navigationController: navigationController!, teslaModel: model)
       
       coordinate(to: teslaDetailCoordinator)
   }

@@ -13,8 +13,8 @@ protocol DetailViewDismissFlow {
 
 class TeslaDetailCoordinator: Coordinator, DetailViewDismissFlow {
   let navigationController: UINavigationController
-  let teslaModel: String
-  init(navigationController: UINavigationController, teslaModel: String) {
+  let teslaModel: TeslaModel
+  init(navigationController: UINavigationController, teslaModel: TeslaModel) {
       self.navigationController = navigationController
       self.teslaModel = teslaModel
   }
@@ -22,7 +22,7 @@ class TeslaDetailCoordinator: Coordinator, DetailViewDismissFlow {
   func start() {
     let teslaDetailViewController = TeslaDetailViewController()
     teslaDetailViewController.coordinator = self
-    teslaDetailViewController.TeslaModel = teslaModel
+    teslaDetailViewController.teslaModel = teslaModel
     navigationController.present(teslaDetailViewController, animated: true, completion: nil)
   }
 
