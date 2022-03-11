@@ -34,7 +34,6 @@ class TeslaDetailViewController: UIViewController {
   let modelLabel: UILabel = {
       let label = UILabel()
       label.textColor = .systemIndigo
-      label.translatesAutoresizingMaskIntoConstraints = false
       return label
   }()
   
@@ -49,7 +48,6 @@ class TeslaDetailViewController: UIViewController {
       button.layer.shadowOpacity = 1.0
       button.layer.shadowOffset = CGSize(width: -1, height: 3)
       button.addTarget(self, action: #selector(dismissDetailTapped), for: .touchUpInside)
-      button.translatesAutoresizingMaskIntoConstraints = false
       return button
   }()
 
@@ -66,18 +64,20 @@ extension TeslaDetailViewController {
         self.view.backgroundColor = .white
         self.view.addSubview(modelLabel)
         self.view.addSubview(dismissDetailButton)
+      
+      modelLabel.snp.makeConstraints { make in
+        make.leading.equalToSuperview().offset(5)
+        make.centerY.equalToSuperview()
+      }
+      
+      dismissDetailButton.snp.makeConstraints { make in
         
-        NSLayoutConstraint.activate([
-          modelLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-          modelLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20),
-            
-            dismissDetailButton.widthAnchor
-                .constraint(equalToConstant: UIScreen.main.bounds.width / 3),
-            dismissDetailButton.heightAnchor
-                .constraint(equalToConstant: 50),
-            dismissDetailButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            dismissDetailButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
-        ])
+        make.bottom.equalToSuperview().offset(-15)
+        make.centerX.equalToSuperview()
+        make.height.equalTo(30)
+        make.width.equalTo(UIScreen.main.bounds.width / 3)
+       
+      }
     }
 }
 
