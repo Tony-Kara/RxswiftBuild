@@ -13,6 +13,16 @@ class TeslaListViewController: UIViewController{
 
   
   
+  let searchBar: UISearchBar = {
+    let searchBar = UISearchBar()
+    searchBar.placeholder = " Search..."
+    searchBar.sizeToFit()
+    searchBar.isTranslucent = true
+    searchBar.backgroundColor = .white
+    searchBar.backgroundImage = UIImage()
+    return searchBar
+  }()
+  
   private  let tableview: UITableView = {
     let table = UITableView(frame: .zero, style: .grouped)
     table.backgroundColor = .white
@@ -24,7 +34,7 @@ class TeslaListViewController: UIViewController{
    override func viewDidLoad() {
        super.viewDidLoad()
        // Do any additional setup after loading the view.
-      
+       view.backgroundColor = .clear
        bindView()
        setUpView()
    }
@@ -35,7 +45,17 @@ class TeslaListViewController: UIViewController{
 
   private func bindView(){
     
-    viewModel.testlaModels
+    
+  searchBar.rx.text.orEmpty
+      .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
+      .distinctUntilChanged()
+      .map {
+        query in
+        self.viewModel.testlaModels.value.filter { teslamodel in
+          
+          query.isEmpty || teslamodel.teslaModel.lowercased().contains(query.lowercased())
+        }
+      }
       .bind(to: tableview.rx.items(cellIdentifier: "cell", cellType: TeslaModelsTableViewCell.self)) {
         _, model, cell in
         
@@ -56,10 +76,19 @@ class TeslaListViewController: UIViewController{
   }
   
   func setUpView(){
-    
     view.addSubview(tableview)
+    view.addSubview(searchBar)
     tableview.snp.makeConstraints { make in
-      make.edges.equalToSuperview()
+      make.top.equalTo(searchBar.snp.bottom)
+      make.leading.trailing.bottom.equalToSuperview()
+    
+    }
+    
+    searchBar.snp.makeConstraints { make in
+      make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+      make.leading.trailing.equalToSuperview()
+     // make.height.equalTo(30)
+      
     }
     
   }

@@ -17,7 +17,7 @@ class TeslaDetailViewController: UIViewController {
   }
   
   // MARK: - Properties
-
+  
   var teslaModel: TeslaModel? {
       didSet {
         

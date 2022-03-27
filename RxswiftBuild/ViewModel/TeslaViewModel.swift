@@ -7,10 +7,11 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 final class TeslaViewModel {
   
-  let testlaModels = Observable.just([
+  let testlaModels = BehaviorRelay(value: [
     
     TeslaModel(teslaModel:  "Model S", teslaImage: "teslaX"),
     TeslaModel(teslaModel:  "Model X", teslaImage: "teslaY"),
