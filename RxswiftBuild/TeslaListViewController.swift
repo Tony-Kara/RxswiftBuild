@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class TeslaListViewController: UIViewController{
 
@@ -43,6 +44,16 @@ class TeslaListViewController: UIViewController{
   var viewModel = TeslaViewModel()
   let bag = DisposeBag()
 
+  let dataSource = RxTableViewSectionedReloadDataSource<SectionModel>(configureCell: {
+    datasource, tableview , indexpath, item in
+    let cell : TeslaModelsTableViewCell = tableview.dequeueReusableCell(withIdentifier: "cell", for: indexpath) as! TeslaModelsTableViewCell
+    cell.set(model: item)
+    return cell
+  },
+   titleForHeaderInSection: {
+    datasource, index in
+    return datasource.sectionModels[index].header
+  })
   private func bindView(){
     
     
@@ -50,18 +61,21 @@ class TeslaListViewController: UIViewController{
       .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
       .distinctUntilChanged()
       .map {
+        
         query in
-        self.viewModel.testlaModels.value.filter { teslamodel in
-          
-          query.isEmpty || teslamodel.teslaModel.lowercased().contains(query.lowercased())
+        self.viewModel.tableViewItemsSelected.value.map {
+          sectionModel in
+          SectionModel(header: sectionModel.header, items: sectionModel.items.filter{
+            
+            teslamodel in
+              
+              query.isEmpty || teslamodel.teslaModel.lowercased().contains(query.lowercased())
+          })
         }
-      }
-      .bind(to: tableview.rx.items(cellIdentifier: "cell", cellType: TeslaModelsTableViewCell.self)) {
-        _, model, cell in
         
-        cell.set(model: model)
         
       }
+      .bind(to: tableview.rx.items(dataSource: dataSource))
       .disposed(by: bag)
     
 

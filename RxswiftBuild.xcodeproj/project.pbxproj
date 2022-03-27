@@ -24,6 +24,7 @@
 		CE70791B27DA103D00DC2E3A /* TeslaListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70791A27DA103D00DC2E3A /* TeslaListCoordinator.swift */; };
 		CE70791D27DA1E8F00DC2E3A /* TeslaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70791C27DA1E8F00DC2E3A /* TeslaDetailViewController.swift */; };
 		CE70791F27DA20D900DC2E3A /* TeslaDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE70791E27DA20D900DC2E3A /* TeslaDetailCoordinator.swift */; };
+		CE9E487E27F0A805006C7165 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E487D27F0A805006C7165 /* SectionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		CE70791A27DA103D00DC2E3A /* TeslaListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeslaListCoordinator.swift; sourceTree = "<group>"; };
 		CE70791C27DA1E8F00DC2E3A /* TeslaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeslaDetailViewController.swift; sourceTree = "<group>"; };
 		CE70791E27DA20D900DC2E3A /* TeslaDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeslaDetailCoordinator.swift; sourceTree = "<group>"; };
+		CE9E487D27F0A805006C7165 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				CE70791227D9CFDC00DC2E3A /* TeslaModel.swift */,
+				CE9E487D27F0A805006C7165 /* SectionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				CE70791727DA014900DC2E3A /* StartCoordinator.swift in Sources */,
 				CE7078F527D8C24800DC2E3A /* HomeViewController.swift in Sources */,
 				CE7078F127D8C24800DC2E3A /* AppDelegate.swift in Sources */,
+				CE9E487E27F0A805006C7165 /* SectionModel.swift in Sources */,
 				CE70791327D9CFDC00DC2E3A /* TeslaModel.swift in Sources */,
 				CE70791F27DA20D900DC2E3A /* TeslaDetailCoordinator.swift in Sources */,
 				CE70791127D9CF7F00DC2E3A /* TeslaViewModel.swift in Sources */,
